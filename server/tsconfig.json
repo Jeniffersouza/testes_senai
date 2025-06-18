@@ -16,7 +16,7 @@
         },
         "types": ["node", "jest"]
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "src/tests"],
     "exclude": ["node_modules", "dist"],
     "files":["./src/types/types.d.ts"]
 }

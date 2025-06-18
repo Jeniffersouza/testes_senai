@@ -9,7 +9,16 @@ export class TaskService {
             dueDate?: string | null;
             priority?: string;
         },
-    ) {
+    ){
+        // Validação: título não pode estar vazio ou só com espaços
+        if (!data.title || data.title.trim() === '') {
+            throw new Error('o nome da tarefa é obrigatório');
+        }
+        // Validação: título não pode começar com número
+        if (/^\d/.test(data.title)) {
+            throw new Error('o nome da tarefa não pode começar com número');
+        }
+
         const task = await prisma.task.create({
             data: {
                 title: data.title,
